@@ -1,0 +1,24 @@
+name: NeatQueue Reset
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+      timezone: "Europe/Paris"
+    - cron: "0 12 * * *"
+      timezone: "Europe/Paris"
+  workflow_dispatch:
+
+jobs:
+  clearqueue:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clear NeatQueue
+        env:
+          NEATQUEUE_TOKEN: ${{ secrets.NEATQUEUE_TOKEN }}
+        run: |
+          curl -f -X POST \
+            "https://api.neatqueue.com/api/v2/clearqueue" \
+            -H "Authorization: Bearer $NEATQUEUE_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"channel_id":1548623395111964742}'
