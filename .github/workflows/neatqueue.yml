@@ -2,7 +2,7 @@ name: NeatQueue Reset
 
 on:
   schedule:
-    - cron: "15 20 * * *"
+    - cron: "0 12 * * *"
       timezone: "Europe/Paris"
     - cron: "0 0 * * *"
       timezone: "Europe/Paris"
