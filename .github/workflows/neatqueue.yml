@@ -1,9 +1,6 @@
 name: NeatQueue Reset
 
 on:
-  schedule:
-    - cron: "*/1 * * * *"
-      timezone: "Europe/Paris"
   workflow_dispatch:
 
 jobs:
